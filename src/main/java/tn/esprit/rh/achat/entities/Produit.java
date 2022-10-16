@@ -24,6 +24,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class Produit implements Serializable {
 //commentaire
+//2eme commentaire
 	/**
 	 * 
 	 */
