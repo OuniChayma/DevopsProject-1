@@ -2,7 +2,6 @@ package tn.esprit.achat.model;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
-import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.entities.Reglement;
 @Component
 public class ReglementConverter {

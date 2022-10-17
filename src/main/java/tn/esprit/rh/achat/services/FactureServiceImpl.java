@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.achat.model.FactureConverter;
 import tn.esprit.achat.model.FactureModel;
-import tn.esprit.achat.model.OperateurConverter;
 import tn.esprit.rh.achat.entities.*;
 import tn.esprit.rh.achat.repositories.*;
 

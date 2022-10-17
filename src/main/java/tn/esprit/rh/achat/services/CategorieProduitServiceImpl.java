@@ -5,10 +5,8 @@ import org.springframework.stereotype.Service;
 
 import tn.esprit.achat.model.CategorieProduitConverter;
 import tn.esprit.achat.model.CategorieProduitModel;
-import tn.esprit.achat.model.ProduitConverter;
-import tn.esprit.achat.model.ProduitModel;
+
 import tn.esprit.rh.achat.entities.CategorieProduit;
-import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
 
 import java.util.List;

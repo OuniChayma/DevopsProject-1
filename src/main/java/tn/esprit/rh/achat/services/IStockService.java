@@ -1,6 +1,5 @@
 package tn.esprit.rh.achat.services;
 
-import tn.esprit.achat.model.FournisseurModel;
 import tn.esprit.achat.model.StockModel;
 import tn.esprit.rh.achat.entities.Stock;
 

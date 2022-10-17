@@ -1,7 +1,6 @@
 package tn.esprit.rh.achat.services;
 
 import tn.esprit.achat.model.SecteurModel;
-import tn.esprit.achat.model.StockModel;
 import tn.esprit.rh.achat.entities.SecteurActivite;
 
 import java.util.List;

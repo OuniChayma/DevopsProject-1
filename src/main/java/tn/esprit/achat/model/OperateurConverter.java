@@ -4,7 +4,6 @@ import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
 import tn.esprit.rh.achat.entities.Operateur;
-import tn.esprit.rh.achat.entities.Produit;
 @Component
 public class OperateurConverter {
 	 public OperateurModel convertEntityToDto(Operateur operateur) {

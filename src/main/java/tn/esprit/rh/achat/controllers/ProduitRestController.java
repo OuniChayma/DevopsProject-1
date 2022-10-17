@@ -4,7 +4,6 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import tn.esprit.achat.model.ProduitConverter;
 import tn.esprit.achat.model.ProduitModel;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.services.IProduitService;
@@ -20,8 +19,7 @@ public class ProduitRestController {
 
 	@Autowired
 	IProduitService produitService;
-	@Autowired
-    private ProduitConverter customerConverter;
+
 
 	// http://localhost:8089/SpringMVC/produit/retrieve-all-produits
 	@GetMapping("/retrieve-all-produits")

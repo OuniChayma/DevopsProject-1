@@ -3,10 +3,8 @@ package tn.esprit.rh.achat.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import tn.esprit.achat.model.FournisseurConverter;
 import tn.esprit.achat.model.OperateurConverter;
 import tn.esprit.achat.model.OperateurModel;
-import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.entities.Operateur;
 import tn.esprit.rh.achat.repositories.OperateurRepository;
 

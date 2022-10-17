@@ -4,9 +4,7 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import tn.esprit.achat.model.CategorieProduitConverter;
 import tn.esprit.achat.model.CategorieProduitModel;
-import tn.esprit.achat.model.ProduitConverter;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.services.ICategorieProduitService;
 

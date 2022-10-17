@@ -1,7 +1,6 @@
 package tn.esprit.rh.achat.services;
 
 import tn.esprit.achat.model.ReglementModel;
-import tn.esprit.achat.model.SecteurModel;
 import tn.esprit.rh.achat.entities.Reglement;
 
 import java.util.Date;

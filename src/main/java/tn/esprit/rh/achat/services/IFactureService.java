@@ -1,7 +1,6 @@
 package tn.esprit.rh.achat.services;
 
 import tn.esprit.achat.model.FactureModel;
-import tn.esprit.achat.model.OperateurModel;
 import tn.esprit.rh.achat.entities.Facture;
 
 import java.util.Date;
