@@ -3,6 +3,11 @@ package tn.esprit.rh.achat.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tn.esprit.achat.model.OperateurConverter;
+import tn.esprit.achat.model.StockConverter;
+import tn.esprit.achat.model.StockModel;
+import tn.esprit.rh.achat.entities.SecteurActivite;
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.StockRepository;
 
@@ -13,7 +18,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class StockServiceImpl implements IStockService {
-
+	@Autowired
+	StockConverter customerConverter;
 	@Autowired
 	StockRepository stockRepository;
 
@@ -82,6 +88,14 @@ public class StockServiceImpl implements IStockService {
 		}
 		log.info(finalMessage);
 		return finalMessage;
+	}
+
+	@Override
+	public StockModel saveStock(StockModel stockModel) {
+		Stock customer = customerConverter.convertDtoToEntity(stockModel);
+        customer = stockRepository.save(customer);
+        return customerConverter.convertEntityToDto(customer);
+		
 	}
 
 }

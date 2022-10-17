@@ -3,6 +3,10 @@ package tn.esprit.rh.achat.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tn.esprit.achat.model.FactureConverter;
+import tn.esprit.achat.model.FactureModel;
+import tn.esprit.achat.model.OperateurConverter;
 import tn.esprit.rh.achat.entities.*;
 import tn.esprit.rh.achat.repositories.*;
 
@@ -15,6 +19,9 @@ import java.util.Set;
 @Slf4j
 @Transactional
 public class FactureServiceImpl implements IFactureService {
+	@Autowired
+	FactureConverter customerConverter;
+
 
 	@Autowired
 	FactureRepository factureRepository;
@@ -109,6 +116,14 @@ public class FactureServiceImpl implements IFactureService {
 		float totalFacturesEntreDeuxDates = factureRepository.getTotalFacturesEntreDeuxDates(startDate,endDate);
 		float totalRecouvrementEntreDeuxDates =reglementService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
 		return (totalRecouvrementEntreDeuxDates/totalFacturesEntreDeuxDates)*100;
+	}
+
+
+	@Override
+	public FactureModel saveFacture(FactureModel factureModel) {
+		Facture customer = customerConverter.convertDtoToEntity(factureModel);
+        customer =factureRepository.save(customer);
+        return customerConverter.convertEntityToDto(customer);
 	}
 	
 

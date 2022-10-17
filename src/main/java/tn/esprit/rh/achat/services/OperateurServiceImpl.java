@@ -2,6 +2,11 @@ package tn.esprit.rh.achat.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tn.esprit.achat.model.FournisseurConverter;
+import tn.esprit.achat.model.OperateurConverter;
+import tn.esprit.achat.model.OperateurModel;
+import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.entities.Operateur;
 import tn.esprit.rh.achat.repositories.OperateurRepository;
 
@@ -9,6 +14,8 @@ import java.util.List;
 
 @Service
 public class OperateurServiceImpl implements IOperateurService {
+	@Autowired
+	OperateurConverter customerConverter;
 
 	@Autowired
 	OperateurRepository operateurRepository;
@@ -38,6 +45,14 @@ public class OperateurServiceImpl implements IOperateurService {
 	@Override
 	public Operateur retrieveOperateur(Long id) {
 		return operateurRepository.findById(id).orElse(null);
+	}
+
+	@Override
+	public OperateurModel saveOperateur(OperateurModel operateurModel) {
+		Operateur customer = customerConverter.convertDtoToEntity(operateurModel);
+        customer = operateurRepository.save(customer);
+        return customerConverter.convertEntityToDto(customer);
+		
 	}
 
 }

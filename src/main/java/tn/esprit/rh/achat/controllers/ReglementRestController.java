@@ -4,6 +4,8 @@ import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+
+import tn.esprit.achat.model.ReglementModel;
 import tn.esprit.rh.achat.entities.Reglement;
 import tn.esprit.rh.achat.services.IReglementService;
 
@@ -23,9 +25,9 @@ public class ReglementRestController {
     // http://localhost:8089/SpringMVC/reglement/add-reglement
     @PostMapping("/add-reglement")
     @ResponseBody
-    public Reglement addReglement(@RequestBody Reglement r) {
+    public ReglementModel addReglement(@RequestBody ReglementModel r) {
    
-        return reglementService.addReglement(r);
+        return reglementService.saveReglement(r);
     }
     @GetMapping("/retrieve-all-reglements")
     @ResponseBody
