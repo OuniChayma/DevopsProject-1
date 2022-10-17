@@ -3,6 +3,8 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import tn.esprit.achat.model.FournisseurModel;
 import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.services.IFournisseurService;
 
@@ -35,9 +37,9 @@ public class FournisseurRestController {
 	// http://localhost:8089/SpringMVC/fournisseur/add-fournisseur
 	@PostMapping("/add-fournisseur")
 	@ResponseBody
-	public Fournisseur addFournisseur(@RequestBody Fournisseur f) {
+	public FournisseurModel addFournisseur(@RequestBody FournisseurModel f) {
 	
-		return fournisseurService.addFournisseur(f);
+		return fournisseurService.saveFournisseur(f);
 	}
 
 	
@@ -50,8 +52,8 @@ public class FournisseurRestController {
 	// http://localhost:8089/SpringMVC/fournisseur/modify-fournisseur
 	@PutMapping("/modify-fournisseur")
 	@ResponseBody
-	public Fournisseur modifyFournisseur(@RequestBody Fournisseur fournisseur) {
-		return fournisseurService.updateFournisseur(fournisseur);
+	public FournisseurModel modifyFournisseur(@RequestBody FournisseurModel fournisseur) {
+		return fournisseurService.saveFournisseur(fournisseur);
 	}
 
 	// http://localhost:8089/SpringMVC/fournisseur/assignSecteurActiviteToFournisseur/1/5

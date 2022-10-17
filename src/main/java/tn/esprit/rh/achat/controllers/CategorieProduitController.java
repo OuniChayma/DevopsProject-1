@@ -3,6 +3,10 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import tn.esprit.achat.model.CategorieProduitConverter;
+import tn.esprit.achat.model.CategorieProduitModel;
+import tn.esprit.achat.model.ProduitConverter;
 import tn.esprit.rh.achat.entities.CategorieProduit;
 import tn.esprit.rh.achat.services.ICategorieProduitService;
 
@@ -15,6 +19,7 @@ public class CategorieProduitController {
 
 	@Autowired
 	ICategorieProduitService categorieProduitService;
+
 	
 	// http://localhost:8089/SpringMVC/categorieProduit/retrieve-all-categorieProduit
 	@GetMapping("/retrieve-all-categorieProduit")
@@ -34,9 +39,9 @@ public class CategorieProduitController {
 	// http://localhost:8089/SpringMVC/categorieProduit/add-categorieProduit
 	@PostMapping("/add-categorieProduit")
 	@ResponseBody
-	public CategorieProduit addCategorieProduit(@RequestBody CategorieProduit cp) {
+	public CategorieProduitModel addCategorieProduit(@RequestBody CategorieProduitModel cp) {
 		
-		return categorieProduitService.addCategorieProduit(cp);
+		return categorieProduitService.saveCategorieProduit(cp);
 	}
 
 	
@@ -49,8 +54,8 @@ public class CategorieProduitController {
 	// http://localhost:8089/SpringMVC/categorieProduit/modify-categorieProduit
 	@PutMapping("/modify-categorieProduit")
 	@ResponseBody
-	public CategorieProduit modifyCategorieProduit(@RequestBody CategorieProduit categorieProduit) {
-		return categorieProduitService.updateCategorieProduit(categorieProduit);
+	public CategorieProduitModel modifyCategorieProduit(@RequestBody CategorieProduitModel categorieProduit) {
+		return categorieProduitService.saveCategorieProduit(categorieProduit);
 	}
 
 	

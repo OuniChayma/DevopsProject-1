@@ -3,6 +3,9 @@ package tn.esprit.rh.achat.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tn.esprit.achat.model.FournisseurConverter;
+import tn.esprit.achat.model.FournisseurModel;
 import tn.esprit.rh.achat.entities.DetailFournisseur;
 import tn.esprit.rh.achat.entities.Fournisseur;
 import tn.esprit.rh.achat.entities.SecteurActivite;
@@ -17,6 +20,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class FournisseurServiceImpl implements IFournisseurService {
+	@Autowired
+	FournisseurConverter customerConverter;
 
 	@Autowired
 	FournisseurRepository fournisseurRepository;
@@ -81,6 +86,13 @@ public class FournisseurServiceImpl implements IFournisseurService {
 		
 		
 	}
+	@Override
+	public FournisseurModel saveFournisseur(FournisseurModel fournisseurModel) {
+		  Fournisseur customer = customerConverter.convertDtoToEntity(fournisseurModel);
+	        customer = fournisseurRepository.save(customer);
+	        return customerConverter.convertEntityToDto(customer);
+
+}
 
 	
 
