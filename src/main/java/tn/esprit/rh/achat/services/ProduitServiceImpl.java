@@ -50,10 +50,10 @@ public class ProduitServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public ProduitModel updateProduit(ProduitModel produitModel) {
-		 Produit customer = customerConverter.convertDtoToEntity(produitModel);
-	        customer = produitRepository.save(customer);
-	        return customerConverter.convertEntityToDto(customer); }
+	public Produit updateProduit(Produit produit) {
+	return 	produitRepository.save(produit);
+		
+		}
 
 	@Override
 	public Produit retrieveProduit(Long produitId) {
@@ -66,8 +66,9 @@ public class ProduitServiceImpl implements IProduitService {
 	public void assignProduitToStock(Long idProduit, Long idStock) {
 		Produit produit = produitRepository.findById(idProduit).orElse(null);
 		Stock stock = stockRepository.findById(idStock).orElse(null);
+        if (produit !=null) {
 		produit.setStock(stock);
-		produitRepository.save(produit);
+		produitRepository.save(produit);}
 
 	}
 	@Override

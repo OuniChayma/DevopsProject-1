@@ -59,7 +59,9 @@ public class FactureServiceImpl implements IFactureService {
 		float montantRemise = 0;
 		for (DetailFacture detail : detailsFacture) {
 			//Récuperer le produit 
+			
 			Produit produit = produitRepository.findById(detail.getProduit().getIdProduit()).orElse(null);
+			if(produit != null) {
 			//Calculer le montant total pour chaque détail Facture
 			float prixTotalDetail = detail.getQteCommandee() * produit.getPrix();
 			//Calculer le montant remise pour chaque détail Facture
@@ -71,7 +73,7 @@ public class FactureServiceImpl implements IFactureService {
 			montantFacture = montantFacture + prixTotalDetailRemise;
 			//Calculer le montant remise pour la facture
 			montantRemise = montantRemise + montantRemiseDetail;
-			detailFactureRepository.save(detail);
+			detailFactureRepository.save(detail);}
 		}
 		f.setMontantFacture(montantFacture);
 		f.setMontantRemise(montantRemise);
@@ -107,8 +109,9 @@ public class FactureServiceImpl implements IFactureService {
 	public void assignOperateurToFacture(Long idOperateur, Long idFacture) {
 		Facture facture = factureRepository.findById(idFacture).orElse(null);
 		Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
+		if(operateur != null) {
 		operateur.getFactures().add(facture);
-		operateurRepository.save(operateur);
+		operateurRepository.save(operateur);}
 	}
 
 	@Override

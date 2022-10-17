@@ -13,7 +13,7 @@ public interface IProduitService {
 
 	void deleteProduit(Long id);
 
-	ProduitModel updateProduit(ProduitModel produitModel);
+	Produit updateProduit(Produit produit);
 
 	Produit retrieveProduit(Long id);
 
