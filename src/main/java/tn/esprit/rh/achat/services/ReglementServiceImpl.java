@@ -14,7 +14,7 @@ import java.util.List;
 
 @Service
 public class ReglementServiceImpl implements IReglementService {
-	@Autowired
+	
 	ReglementConverter customerConverter;
 
 	@Autowired

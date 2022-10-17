@@ -12,7 +12,7 @@ import java.util.List;
 
 @Service
 public class SecteurActiviteServiceImpl implements ISecteurActiviteService{
-	@Autowired
+	
 	SecteurConverter customerConverter;
 	@Autowired
 	SecteurActiviteRepository secteurActiviteRepository;

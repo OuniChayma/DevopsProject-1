@@ -18,7 +18,6 @@ import java.util.List;
 @Service
 @Slf4j
 public class ProduitServiceImpl implements IProduitService {
-    @Autowired
      ProduitConverter customerConverter;
 	@Autowired
 	ProduitRepository produitRepository;

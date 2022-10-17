@@ -14,7 +14,7 @@ import java.util.List;
 @Service
 public class CategorieProduitServiceImpl implements ICategorieProduitService {
 	
-	@Autowired
+
 	CategorieProduitConverter customerConverter;
 	@Autowired
 	CategorieProduitRepository categorieProduitRepository;

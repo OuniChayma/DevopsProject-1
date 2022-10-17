@@ -20,7 +20,7 @@ import java.util.List;
 @Service
 @Slf4j
 public class FournisseurServiceImpl implements IFournisseurService {
-	@Autowired
+	
 	FournisseurConverter customerConverter;
 
 	@Autowired
