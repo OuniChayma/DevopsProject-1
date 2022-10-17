@@ -3,6 +3,9 @@ package tn.esprit.rh.achat.controllers;
 import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import tn.esprit.achat.model.ProduitConverter;
+import tn.esprit.achat.model.ProduitModel;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.services.IProduitService;
 
@@ -17,6 +20,8 @@ public class ProduitRestController {
 
 	@Autowired
 	IProduitService produitService;
+	@Autowired
+    private ProduitConverter customerConverter;
 
 	// http://localhost:8089/SpringMVC/produit/retrieve-all-produits
 	@GetMapping("/retrieve-all-produits")
@@ -35,8 +40,8 @@ public class ProduitRestController {
 	/* Ajouter en produit tout en lui affectant la catégorie produit et le stock associés */
 	@PostMapping("/add-produit")
 	@ResponseBody
-	public Produit addProduit(@RequestBody Produit p) {
-		return produitService.addProduit(p);
+	public ProduitModel addProduit(@RequestBody ProduitModel p) {
+		return produitService.saveProduit(p);
 	}
 
 	
@@ -49,7 +54,7 @@ public class ProduitRestController {
 	
 	@PutMapping("/modify-produit")
 	@ResponseBody
-	public Produit modifyProduit(@RequestBody Produit p) {
+	public ProduitModel modifyProduit(@RequestBody ProduitModel p) {
 		return produitService.updateProduit(p);
 	}
 
@@ -68,12 +73,6 @@ public class ProduitRestController {
 	 * detailFacture du produit envoyé en paramètre )
 	 */
 	// 
-/*	@GetMapping(value = "/getRevenuBrutProduit/{idProduit}/{startDate}/{endDate}")
-	public float getRevenuBrutProduit(@PathVariable("idProduit") Long idProduit,
-			@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
-			@PathVariable(name = "endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date endDate) {
 
-		return produitService.getRevenuBrutProduit(idProduit, startDate, endDate);
-	}*/
 
 }

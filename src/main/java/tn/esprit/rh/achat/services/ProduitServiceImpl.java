@@ -3,6 +3,9 @@ package tn.esprit.rh.achat.services;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import tn.esprit.achat.model.ProduitConverter;
+import tn.esprit.achat.model.ProduitModel;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.entities.Stock;
 import tn.esprit.rh.achat.repositories.CategorieProduitRepository;
@@ -15,7 +18,8 @@ import java.util.List;
 @Service
 @Slf4j
 public class ProduitServiceImpl implements IProduitService {
-
+    @Autowired
+     ProduitConverter customerConverter;
 	@Autowired
 	ProduitRepository produitRepository;
 	@Autowired
@@ -46,9 +50,10 @@ public class ProduitServiceImpl implements IProduitService {
 	}
 
 	@Override
-	public Produit updateProduit(Produit p) {
-		return produitRepository.save(p);
-	}
+	public ProduitModel updateProduit(ProduitModel produitModel) {
+		 Produit customer = customerConverter.convertDtoToEntity(produitModel);
+	        customer = produitRepository.save(customer);
+	        return customerConverter.convertEntityToDto(customer); }
 
 	@Override
 	public Produit retrieveProduit(Long produitId) {
@@ -65,6 +70,10 @@ public class ProduitServiceImpl implements IProduitService {
 		produitRepository.save(produit);
 
 	}
+	@Override
+	public ProduitModel saveProduit(ProduitModel produitModel) {
+		  Produit customer = customerConverter.convertDtoToEntity(produitModel);
+	        customer = produitRepository.save(customer);
+	        return customerConverter.convertEntityToDto(customer);
 
-
-}
+}}
