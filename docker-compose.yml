@@ -18,7 +18,7 @@ services:
   achatback:
     depends_on:
       - mysqldb
-    image:  mogaadions/achat
+    image: ounich/achat-back
     restart: on-failure
     ports:
       - 8089:8089
